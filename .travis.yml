@@ -16,8 +16,10 @@ before_script:
   -qq; fi
 - if [ $TRAVIS_OS_NAME != "osx" ]; then sudo apt-get install -y -qq build-essential;
   fi
+- rm -f main.pdf
 script:
-- make pub VERBOSE=1
+- make
+- file main.pdf
 deploy:
   provider: releases
   api_key:
